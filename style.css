@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    overflow: hidden; 
+}
+.poster-wrapper {
+    width: 90%;
+    max-width: 900px;
+    background: linear-gradient(to right, #2c3e50, #34495e);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease-out;
+}
+
+.poster-header {
+    margin-bottom: 30px;
+}
+
+.event-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInTitle 2s ease-out 0.5s forwards;
+}
+
+.event-tagline {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInTagline 2s ease-out 1s forwards;
+}
+
+.poster-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInBody 2s ease-out 1.5s forwards;
+}
+
+.poster-info {
+    margin-bottom: 30px;
+}
+
+.event-date,
+.event-location {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.event-description {
+    font-size: 16px;
+    max-width: 650px;
+    margin: 10px auto;
+    color: #bdc3c7;
+}
+
+.cta-section {
+    margin-top: 20px;
+}
+
+.cta-button {
+    background-color: #e74c3c;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    position: relative;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.poster-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('tech-event-bg.jpg') no-repeat center center;
+    background-size: cover;
+    animation: backgroundMove 30s linear infinite;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInTitle {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInTagline {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInBody {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes backgroundMove {
+    0% { transform: scale(1) translateX(0); }
+    100% { transform: scale(1.1) translateX(-10px); }
+}
+
+@media (max-width: 768px) {
+    .event-title {
+        font-size: 36px;
+    }
+
+    .event-tagline {
+        font-size: 18px;
+    }
+
+    .event-description {
+        font-size: 14px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-title {
+        font-size: 28px;
+    }
+
+    .event-tagline {
+        font-size: 16px;
+    }
+
+    .event-description {
+        font-size: 13px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
